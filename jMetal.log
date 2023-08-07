@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-04-27T07:36:37.393858900Z</date>
+  <millis>1682580997393</millis>
+  <nanos>858900</nanos>
+  <sequence>0</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.JMetalLogger</class>
+  <method>configureLoggers</method>
+  <thread>1</thread>
+  <message>Loggers configured with null</message>
+</record>
+<record>
+  <date>2023-04-27T07:36:37.486858500Z</date>
+  <millis>1682580997486</millis>
+  <nanos>858500</nanos>
+  <sequence>1</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.query.search_engine.LuceneSearch</class>
+  <method>initialSearch</method>
+  <thread>1</thread>
+  <message>initial query effectiveness: 33</message>
+</record>
+<record>
+  <date>2023-04-27T07:36:37.488859600Z</date>
+  <millis>1682580997488</millis>
+  <nanos>859600</nanos>
+  <sequence>2</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.query.search_engine.LuceneSearch</class>
+  <method>initialSearch</method>
+  <thread>1</thread>
+  <message>initial query inverse average precision: 7144.0</message>
+</record>
+</log>
