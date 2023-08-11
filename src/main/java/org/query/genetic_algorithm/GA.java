@@ -124,6 +124,7 @@ public class GA {
                 else {
                     if (idStr.equals(property.stopBugId)) {
                         meetStopId = true;
+                        continue;
                     }
                     if (meetStopId) {
                         File bugFile = new File(property.projectDataPath + "/ProcessedBugReports/" + property.project + "/" + idStr + ".txt");
