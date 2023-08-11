@@ -104,19 +104,39 @@ public class GA {
             BufferedReader in = new BufferedReader(new FileReader(property.projectDataPath + "/BugId/" + property.project + ".txt"));
 
             String lineContent;
+            boolean meetStopId = false;
 
             while ((lineContent = in.readLine()) != null) {
                 String idStr = lineContent.replaceAll("[^0-9]", "");
 
-//                File bugFile = new File(property.projectDataPath + "\\BugCorpus\\" + idStr + ".txt");
-                File bugFile = new File(property.projectDataPath + "/ProcessedBugReports/" + property.project + "/" + idStr + ".txt");
-
-                BugReport bugReport = new BugReport(new String[]{bugFile.getAbsolutePath(), idStr});
-                if (bugReport.getTarget_source_code().size() == 0) {
-                    continue;
+                if (property.stopBugId.equals("")) {
+//                    File bugFile = new File(property.projectDataPath + "\\BugCorpus\\" + idStr + ".txt");
+                    File bugFile = new File(property.projectDataPath + "/ProcessedBugReports/" + property.project + "/" + idStr + ".txt");
+    
+                    BugReport bugReport = new BugReport(new String[]{bugFile.getAbsolutePath(), idStr});
+                    if (bugReport.getTarget_source_code().size() == 0) {
+                        continue;
+                    }
+    
+                    run_GA(bugReport, writer);
                 }
 
-                run_GA(bugReport, writer);
+                else {
+                    if (idStr.equals(property.stopBugId)) {
+                        meetStopId = true;
+                    }
+                    if (meetStopId) {
+                        File bugFile = new File(property.projectDataPath + "/ProcessedBugReports/" + property.project + "/" + idStr + ".txt");
+    
+                        BugReport bugReport = new BugReport(new String[]{bugFile.getAbsolutePath(), idStr});
+                        if (bugReport.getTarget_source_code().size() == 0) {
+                            continue;
+                        }
+        
+                        run_GA(bugReport, writer);
+                    }
+                }
+
             }
 
             in.close();
